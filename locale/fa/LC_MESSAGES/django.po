@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-26 02:08+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: project/apps/portfolio/templates/portfolio/index.html:67
+msgid "About me"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:90
+msgid "Experience"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:129
+msgid "Education"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:158
+msgid "Projects"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:175
+msgid "View Project"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:206
+msgid "Skills"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:239
+msgid "Get In Touch"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:250
+msgid "Your email"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:255
+msgid "Your message"
+msgstr ""
+
+#: project/apps/portfolio/templates/portfolio/index.html:269
+msgid "Copright"
+msgstr ""
