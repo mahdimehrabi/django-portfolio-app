@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-26 02:08+0430\n"
+"POT-Creation-Date: 2021-07-26 20:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,42 +18,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: project/apps/portfolio/templates/portfolio/index.html:28
+msgid "Close"
+msgstr "بستن"
+
 #: project/apps/portfolio/templates/portfolio/index.html:67
 msgid "About me"
-msgstr ""
+msgstr "درباره من"
 
 #: project/apps/portfolio/templates/portfolio/index.html:90
 msgid "Experience"
-msgstr ""
+msgstr "مهارت ها"
 
 #: project/apps/portfolio/templates/portfolio/index.html:129
 msgid "Education"
-msgstr ""
+msgstr "تحصیلات"
 
 #: project/apps/portfolio/templates/portfolio/index.html:158
 msgid "Projects"
-msgstr ""
+msgstr "پروژه ها"
 
 #: project/apps/portfolio/templates/portfolio/index.html:175
 msgid "View Project"
-msgstr ""
+msgstr "مشاهده پروژه"
 
 #: project/apps/portfolio/templates/portfolio/index.html:206
 msgid "Skills"
-msgstr ""
+msgstr "مهارت ها"
 
 #: project/apps/portfolio/templates/portfolio/index.html:239
 msgid "Get In Touch"
-msgstr ""
+msgstr "تماس با من"
 
 #: project/apps/portfolio/templates/portfolio/index.html:250
 msgid "Your email"
-msgstr ""
+msgstr "ایمیل شما"
 
 #: project/apps/portfolio/templates/portfolio/index.html:255
 msgid "Your message"
-msgstr ""
+msgstr "پیام شما"
+
+#: project/apps/portfolio/templates/portfolio/index.html:258
+msgid "Send"
+msgstr "ارسال"
 
 #: project/apps/portfolio/templates/portfolio/index.html:269
 msgid "Copright"
-msgstr ""
+msgstr "کپی رایت"
