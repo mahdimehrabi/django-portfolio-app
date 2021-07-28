@@ -3,4 +3,9 @@ from .models import Menu
 
 # Register your models here.
 
-admin.site.register(Menu)
+
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ('title', 'title_fa')
+
+
+admin.site.register(Menu, MenuAdmin)
