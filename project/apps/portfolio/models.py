@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Menu(models.Model):
     title = models.CharField(max_length=35)
@@ -18,3 +16,8 @@ class Header(models.Model):
     second_title = models.CharField(max_length=80)
     second_title_fa = models.CharField(max_length=80)
     background = models.ImageField(upload_to='images/')
+
+
+class HeaderButton(models.Model):
+    title = models.CharField(max_length=60)
+    title_fa = models.CharField(max_length=60)
