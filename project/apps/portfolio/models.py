@@ -10,3 +10,11 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Header(models.Model):
+    first_title = models.CharField(max_length=80)
+    first_title_fa = models.CharField(max_length=80)
+    second_title = models.CharField(max_length=80)
+    second_title_fa = models.CharField(max_length=80)
+    background = models.ImageField(upload_to='images/')
