@@ -12,9 +12,6 @@ class HeaderButtonInline(admin.TabularInline):
 class MenuAdmin(admin.ModelAdmin):
     list_display = ('title', 'title_fa')
 
-    def has_delete_permission(self, request, obj=None):
-        return False
-
 
 class HeaderAdmin(admin.ModelAdmin):
     list_display = ('first_title', 'second_title')
