@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load  portfolio_extras %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 	<head>
@@ -30,7 +31,7 @@
 			<ul id="menu" class="shadow">
 				{% for menu in menus %}
 				<li>
-					<a href="{{menu.link}}">{{menu.title}}</a>
+					<a href="{{menu.link}}">{% get_translatable_field menu 'title' %}</a>
 				</li>
 				{% endfor %}
 			</ul>
@@ -43,7 +44,7 @@
 		<!-- End lang-bar -->
 		<div id="lead">
 			<div id="lead-content">
-				<h1>Ryan Fitzgerald</h1>
+				<h1>{{header.first_title}}</h1>
 				<h2>Software Engineer</h2>
 				<a href="#" class="btn-rounded-white">Download Resume</a>
 			</div>
