@@ -42,10 +42,10 @@
 			<a href="rtl-index.html">FA</a>
 		</div>
 		<!-- End lang-bar -->
-		<div id="lead">
+		<div id="lead" style="background-image:url('{{ header.background.url }}')">
 			<div id="lead-content">
-				<h1>{{header.first_title}}</h1>
-				<h2>Software Engineer</h2>
+				<h1>{% get_translatable_field header 'first_title' %}</h1>
+				<h2>{% get_translatable_field header 'second_title' %}</h2>
 				<a href="#" class="btn-rounded-white">Download Resume</a>
 			</div>
 			<!-- End #lead-content -->
