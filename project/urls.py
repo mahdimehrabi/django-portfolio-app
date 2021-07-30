@@ -22,5 +22,5 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path('', include('project.apps.portfolio.urls'))
+    path('', include('project.apps.portfolio.urls', namespace='portfolio'))
 )
