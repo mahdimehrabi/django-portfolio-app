@@ -2,6 +2,7 @@ from django.test import TestCase, Client
 from django.utils.translation import activate
 from django.shortcuts import reverse
 from .models import Menu, Header, About
+from django.utils.translation import get_language
 # Create your tests here.
 
 # the code of second language that you used for your website
@@ -9,7 +10,7 @@ from .models import Menu, Header, About
 second_lang = 'fa'
 
 
-class IndexTest(TestCase):
+class PortfolioTest(TestCase):
     def SetUp(self):
         self.client = Client()
 
@@ -53,3 +54,15 @@ class IndexTest(TestCase):
         activate(second_lang)
         response = self.client.get(reverse('portfolio:index'))
         self.assertContains(response, about.text_fa)
+
+    def test_switch_langugage(self):
+        activate('en')
+        response = self.client.get(
+            reverse('portfolio:switch-lang', args=(second_lang,)))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(get_language(), second_lang)
+
+        response = self.client.get(
+            reverse('portfolio:switch-lang', args=('en',)))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(get_language(), 'en')
