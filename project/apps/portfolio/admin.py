@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Menu, HeaderButton, Header
+from .models import Menu, HeaderButton, Header, About
 
 # Register your models here.
 
@@ -21,5 +21,11 @@ class HeaderAdmin(admin.ModelAdmin):
         return False
 
 
+class AboutAdmin(admin.ModelAdmin):
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(Header, HeaderAdmin)
+admin.site.register(About, AboutAdmin)
