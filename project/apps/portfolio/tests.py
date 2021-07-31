@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.utils.translation import activate
 from django.shortcuts import reverse
-from .models import Menu, Header
+from .models import Menu, Header, About
 # Create your tests here.
 
 # the code of second language that you used for your website
@@ -42,3 +42,14 @@ class IndexTest(TestCase):
         response = self.client.get(reverse('portfolio:index'))
         self.assertContains(response, header.first_title_fa)
         self.assertContains(response, header.second_title_fa)
+
+    def test_aboutme_index_page(self):
+        about = About.objects.create(text='lorem ipsum this is a fake big text',
+                                     text_fa='fake persian long text')
+        activate('en')
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertContains(response, about.text)
+
+        activate(second_lang)
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertContains(response, about.text_fa)
