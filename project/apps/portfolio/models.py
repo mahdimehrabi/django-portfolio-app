@@ -27,6 +27,7 @@ class HeaderButton(models.Model):
 
 class About(models.Model):
     text = models.TextField()
+    text_fa = models.TextField()
 
     def __str__(self):
         return 'about me'
