@@ -46,7 +46,9 @@
 			<div id="lead-content">
 				<h1>{% get_translatable_field header 'first_title' %}</h1>
 				<h2>{% get_translatable_field header 'second_title' %}</h2>
-				<a href="#" class="btn-rounded-white">Download Resume</a>
+				{% for headerbutton in header.headerbutton_set.all %}
+				<a href="#" class="btn-rounded-white">{% get_translatable_field headerbutton 'title' %}</a>
+				{% endfor %}
 			</div>
 			<!-- End #lead-content -->
 
