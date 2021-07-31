@@ -31,3 +31,19 @@ class About(models.Model):
 
     def __str__(self):
         return 'about me'
+
+
+class Experience(models.Model):
+    employer_name = models.CharField(max_length=80)
+    job_title = models.CharField(max_length=60)
+    description = models.TextField()
+
+    employer_name_fa = models.CharField(max_length=80)
+    job_title_fa = models.CharField(max_length=60)
+    description_fa = models.TextField()
+
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    def __str__(self):
+        return self.employer_name+' '+self.job_title
