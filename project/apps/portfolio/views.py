@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from .models import Menu, Header, About
 from django.utils.translation import activate
@@ -20,4 +20,4 @@ def index(request):
 
 def language_switch(request, lang):
     activate(lang)
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    return HttpResponseRedirect(reverse('portfolio:index'))
