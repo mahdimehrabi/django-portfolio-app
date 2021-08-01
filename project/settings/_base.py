@@ -36,6 +36,7 @@ ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', ' ').split(' ')
 
 INSTALLED_APPS = [
     'project.apps.portfolio.apps.PortfolioConfig',
+    'project.apps.core.apps.CoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,6 +128,12 @@ LANGUAGES = [
     ('fa', 'fa'),
     ('en', 'en'),
 ]
+
+
+SUPERUSER_USERNAME = 'admin'
+SUPERUSER_EMAIL = 'admin@mysite.com'
+# To be changed after first login by admin
+SUPERUSER_INITIAL_PASSWORD = 'hahahahaManAdminam:)'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
