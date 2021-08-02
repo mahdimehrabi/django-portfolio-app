@@ -298,3 +298,4 @@ tags
 # Persistent undo
 [._]*.un~
 
+.env.prod
