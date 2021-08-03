@@ -37,13 +37,12 @@ class Experience(models.Model):
     employer_name = models.CharField(max_length=80)
     job_title = models.CharField(max_length=60)
     description = models.TextField()
+    work_duration_date = models.CharField(max_length=200)
 
     employer_name_fa = models.CharField(max_length=80)
     job_title_fa = models.CharField(max_length=60)
     description_fa = models.TextField()
-
-    start_date = models.DateField()
-    end_date = models.DateField()
+    work_duration_date_fa = models.CharField(max_length=200)
 
     def __str__(self):
         return self.employer_name + ' ' + self.job_title

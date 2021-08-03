@@ -71,7 +71,7 @@
 					</div>
 					<div class="col-md-8">
 						<p>
-						 {% get_translatable_field about 'text' %}
+						{% get_translatable_field about 'text' %}
 						</p>
 					</div>
 				</div>
@@ -82,38 +82,15 @@
 		<div id="experience" class="background-alt">
 			<h2 class="heading">{% translate 'Experience' %}</h2>
 			<div id="experience-timeline">
-				<div data-date="September 2015 – September 2016">
-					<h3>Employer Name</h3>
-					<h4>Job Title</h4>
+				{% for experience in experiences %}
+				<div data-date="{% get_translatable_field experience 'work_duration_date' %}<">
+					<h3>{% get_translatable_field experience 'employer_name' %}</h3>
+					<h4>{% get_translatable_field experience 'job_title' %}</h4>
 					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec
-					nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur
-					libero. Morbi dapibus porta quam laoreet placerat.
+					{% get_translatable_field experience 'description' %}
 					</p>
 				</div>
-
-				<div data-date="September 2015 – September 2016">
-					<h3>Employer Name</h3>
-					<h4>Job Title</h4>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec
-					nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur
-					libero. Morbi dapibus porta quam laoreet placerat.
-					</p>
-				</div>
-
-				<div data-date="September 2015 – September 2016">
-					<h3>Employer Name</h3>
-					<h4>Job Title</h4>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec
-					nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur
-					libero. Morbi dapibus porta quam laoreet placerat.
-					</p>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 		<!-- End #experience -->
