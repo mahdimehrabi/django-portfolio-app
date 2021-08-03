@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.utils.translation import activate
 from django.shortcuts import reverse
-from .models import Menu, Header, About, Study
+from .models import Menu, Header, About, Study, Experience
 from django.utils.translation import get_language
 
 # Create your tests here.
@@ -70,7 +70,15 @@ class PortfolioTest(TestCase):
         self.assertEqual(get_language(), 'en')
 
     def test_study_index_page(self):
-        study = Study.objects.create()
+        study = Study.objects.create(university_title='dgsgds',
+                                     study_grade='sdggsd',
+                                     description='sdggsdsdggsd',
+                                     study_duration_date='sdggsdgsd',
+                                     university_title_fa='سیلسسیل',
+                                     study_grade_fa='لسیلسیلیسگ',
+                                     description_fa='سلسیللسی',
+                                     study_duration_date_fa='سیبلل')
+
         activate('en')
         response = self.client.get(reverse('portfolio:index'))
         self.assertContains(response, study.university_title)
@@ -78,3 +86,23 @@ class PortfolioTest(TestCase):
         activate(second_lang)
         response = self.client.get(reverse('portfolio:index'))
         self.assertContains(response, study.university_title_fa)
+
+    def test_experience_index_page(self):
+        experience = Experience.objects.create(
+            employer_name='test_text',
+            job_title='test_text',
+            description='test_text',
+            work_duration_date='test_text',
+
+            employer_name_fa='متن تستی',
+            job_title_fa='test_text',
+            description_fa='test_text',
+            work_duration_date_fa='test_text',
+        )
+        activate('en')
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertContains(response, experience.employer_name)
+
+        activate(second_lang)
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertContains(response, experience.employer_name_fa)
