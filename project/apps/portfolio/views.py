@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
-from .models import Menu, Header, About, Experience
+from .models import Menu, Header, About, Experience, Study
 from django.utils.translation import activate
 
 # Create your views here.
@@ -11,11 +11,13 @@ def index(request):
     header = Header.objects.first()
     about = About.objects.first()
     experiences = Experience.objects.all()
+    studies = Study.objects.all()
     context = {
         'menus': menus,
         'header': header,
         'about': about,
-        'experiences': experiences
+        'experiences': experiences,
+        'studies': studies
     }
     return render(request, 'portfolio/index.html', context)
 

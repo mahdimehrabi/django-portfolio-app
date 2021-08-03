@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Menu, HeaderButton, Header, About, Experience
+from .models import Menu, HeaderButton, Header, About, Experience, Study
 
 # Register your models here.
 
@@ -30,7 +30,12 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = ('employer_name', 'job_title')
 
 
+class StudyAdmin(admin.ModelAdmin):
+    list_display = ('university_title', 'study_grade')
+
+
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(Header, HeaderAdmin)
 admin.site.register(About, AboutAdmin)
 admin.site.register(Experience, ExperienceAdmin)
+admin.site.register(Study, StudyAdmin)

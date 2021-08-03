@@ -46,3 +46,18 @@ class Experience(models.Model):
 
     def __str__(self):
         return self.employer_name + ' ' + self.job_title
+
+
+class Study(models.Model):
+    university_title = models.CharField(max_length=80)
+    study_grade = models.CharField(max_length=60)
+    description = models.TextField()
+    study_duration_date = models.CharField(max_length=200)
+
+    university_title_fa = models.CharField(max_length=80)
+    study_grade_fa = models.CharField(max_length=60)
+    description_fa = models.TextField()
+    study_duration_date_fa = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.unviersity_title + ' ' + self.study_grade

@@ -83,7 +83,7 @@
 			<h2 class="heading">{% translate 'Experience' %}</h2>
 			<div id="experience-timeline">
 				{% for experience in experiences %}
-				<div data-date="{% get_translatable_field experience 'work_duration_date' %}<">
+				<div data-date="{% get_translatable_field experience 'work_duration_date' %}">
 					<h3>{% get_translatable_field experience 'employer_name' %}</h3>
 					<h4>{% get_translatable_field experience 'job_title' %}</h4>
 					<p>
@@ -97,28 +97,16 @@
 
 		<div id="education">
 			<h2 class="heading">{% translate 'Education' %}</h2>
-			<div class="education-block">
-				<h3>University of Ottawa</h3>
-				<span class="education-date">Sept 2016 - Sept 2017</span>
-				<h4>Bachelor of Science in Computer Science</h4>
-				<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in
-				iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla
-				commodo malesuada sit amet vel lacus. Fusce eget efficitur libero.
-				Morbi dapibus porta quam laoreet placerat.
-				</p>
-			</div>
-			<!-- End .education-block -->
 
 			<div class="education-block">
-				<h3>University of Ottawa</h3>
-				<span class="education-date">Sept 2016 - Sept 2017</span>
-				<h4>Bachelor of Science in Computer Science</h4>
-				<ul>
-					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				</ul>
+				{% for study in studies %}
+				<h3>{% get_translatable_field study 'university_title' %}</h3>
+				<span class="education-date">{% get_translatable_field study 'study_duration_date' %}</span>
+				<h4>{% get_translatable_field study 'study_grade' %}</h4>
+				<p>
+				{% get_translatable_field study 'description' %}
+				</p>
+				{% endfor %}
 			</div>
 			<!-- End .education-block -->
 		</div>

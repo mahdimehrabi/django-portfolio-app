@@ -1,8 +1,9 @@
 from django.test import TestCase, Client
 from django.utils.translation import activate
 from django.shortcuts import reverse
-from .models import Menu, Header, About
+from .models import Menu, Header, About, Study
 from django.utils.translation import get_language
+
 # Create your tests here.
 
 # the code of second language that you used for your website
@@ -45,8 +46,9 @@ class PortfolioTest(TestCase):
         self.assertContains(response, header.second_title_fa)
 
     def test_aboutme_index_page(self):
-        about = About.objects.create(text='lorem ipsum this is a fake big text',
-                                     text_fa='fake persian long text')
+        about = About.objects.create(
+            text='lorem ipsum this is a fake big text',
+            text_fa='fake persian long text')
         activate('en')
         response = self.client.get(reverse('portfolio:index'))
         self.assertContains(response, about.text)
@@ -66,3 +68,13 @@ class PortfolioTest(TestCase):
             reverse('portfolio:switch-lang', args=('en',)))
         self.assertEqual(response.status_code, 302)
         self.assertEqual(get_language(), 'en')
+
+    def test_study_index_page(self):
+        study = Study.objects.create()
+        activate('en')
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertContains(response, study.university_title)
+
+        activate(second_lang)
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertContains(response, study.university_title_fa)
