@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-26 20:31+0000\n"
+"POT-Creation-Date: 2021-08-04 15:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,50 +18,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: project/apps/portfolio/templates/portfolio/index.html:28
-msgid "Close"
-msgstr "بستن"
-
-#: project/apps/portfolio/templates/portfolio/index.html:67
-msgid "About me"
-msgstr "درباره من"
-
-#: project/apps/portfolio/templates/portfolio/index.html:90
-msgid "Experience"
-msgstr "مهارت ها"
-
-#: project/apps/portfolio/templates/portfolio/index.html:129
-msgid "Education"
-msgstr "تحصیلات"
-
-#: project/apps/portfolio/templates/portfolio/index.html:158
-msgid "Projects"
-msgstr "پروژه ها"
-
-#: project/apps/portfolio/templates/portfolio/index.html:175
-msgid "View Project"
-msgstr "مشاهده پروژه"
-
-#: project/apps/portfolio/templates/portfolio/index.html:206
-msgid "Skills"
-msgstr "مهارت ها"
-
-#: project/apps/portfolio/templates/portfolio/index.html:239
-msgid "Get In Touch"
-msgstr "تماس با من"
-
-#: project/apps/portfolio/templates/portfolio/index.html:250
+#: project/apps/portfolio/forms.py:7
 msgid "Your email"
 msgstr "ایمیل شما"
 
-#: project/apps/portfolio/templates/portfolio/index.html:255
+#: project/apps/portfolio/forms.py:8
 msgid "Your message"
 msgstr "پیام شما"
 
-#: project/apps/portfolio/templates/portfolio/index.html:258
+#: project/apps/portfolio/templates/portfolio/index.html:29
+msgid "Close"
+msgstr "بستن"
+
+#: project/apps/portfolio/templates/portfolio/index.html:71
+msgid "About me"
+msgstr "درباره من"
+
+#: project/apps/portfolio/templates/portfolio/index.html:84
+msgid "Experience"
+msgstr "مهارت ها"
+
+#: project/apps/portfolio/templates/portfolio/index.html:100
+msgid "Education"
+msgstr "تحصیلات"
+
+#: project/apps/portfolio/templates/portfolio/index.html:117
+msgid "Projects"
+msgstr "پروژه ها"
+
+#: project/apps/portfolio/templates/portfolio/index.html:131
+msgid "View Project"
+msgstr "مشاهده پروژه"
+
+#: project/apps/portfolio/templates/portfolio/index.html:143
+msgid "Skills"
+msgstr "مهارت ها"
+
+#: project/apps/portfolio/templates/portfolio/index.html:153
+msgid "Get In Touch"
+msgstr "تماس با من"
+
+#: project/apps/portfolio/templates/portfolio/index.html:160
 msgid "Send"
 msgstr "ارسال"
 
-#: project/apps/portfolio/templates/portfolio/index.html:269
+#: project/apps/portfolio/templates/portfolio/index.html:171
 msgid "Copright"
 msgstr "کپی رایت"

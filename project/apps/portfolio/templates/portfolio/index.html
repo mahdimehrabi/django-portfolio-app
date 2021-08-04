@@ -3,208 +3,196 @@
 {% load  portfolio_extras %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>My Portfolio</title>
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-		<link
-				href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
-				rel="stylesheet"
-				/>
-		<link rel="stylesheet" href="{% static 'portfolio/libs/font-awesome/css/fontawesome.min.css' %}"/>
-		<link href="{% static 'portfolio/css/bootstrap.min.css' %}" rel="stylesheet"/>
-		<link href="{% static 'portfolio/css/styles.css' %}" rel="stylesheet"/>
-	</head>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>My Portfolio</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'portfolio/libs/font-awesome/css/fontawesome.min.css' %}"/>
+    <link href="{% static 'portfolio/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'portfolio/css/styles.css' %}" rel="stylesheet"/>
+</head>
 
-	<body>
-		<div id="mobile-menu-open" class="shadow-large">
-			<i class="fa fa-bars" aria-hidden="true"></i>
-		</div>
-		<!-- End #mobile-menu-toggle -->
-		<header>
-			<div id="mobile-menu-close">
-				<span>{% translate 'Close' %}</span> <i class="fa fa-times" aria-hidden="true"></i>
-			</div>
-			<ul id="menu" class="shadow">
-				{% for menu in menus %}
-				<li>
-					<a href="{{ menu.link }}">{% get_translatable_field menu 'title' %}</a>
-				</li>
-				{% endfor %}
-			</ul>
-		</header>
-		<!-- End header -->
-		<div id="lang-bar">
-			<a href="{% url 'portfolio:switch-lang' 'en' %}">EN</a>
-			<a href="{% url 'portfolio:switch-lang' 'fa' %}">FA</a>
-		</div>
-		<!-- End lang-bar -->
-		<div id="lead" style="background-image:url('{{ header.background.url }}')">
-			<div id="lead-content">
-				<h1>{% get_translatable_field header 'first_title' %}</h1>
-				<h2>{% get_translatable_field header 'second_title' %}</h2>
-				{% for headerbutton in header.headerbutton_set.all %}
-				<a href="{{ headerbutton.link }}" target='_blank'
-				   class="btn-rounded-white">{% get_translatable_field headerbutton 'title' %}</a>
-				{% endfor %}
-			</div>
-			<!-- End #lead-content -->
+<body>
+<div id="mobile-menu-open" class="shadow-large">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<!-- End #mobile-menu-toggle -->
+<header>
+    <div id="mobile-menu-close">
+        <span>{% translate 'Close' %}</span> <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <ul id="menu" class="shadow">
+        {% for menu in menus %}
+            <li>
+                <a href="{{ menu.link }}">{% get_translatable_field menu 'title' %}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</header>
+<!-- End header -->
+<div id="lang-bar">
+    <a href="{% url 'portfolio:switch-lang' 'en' %}">EN</a>
+    <a href="{% url 'portfolio:switch-lang' 'fa' %}">FA</a>
+</div>
+<!-- End lang-bar -->
+<div id="lead" style="background-image:url('{{ header.background.url }}')">
+    <div id="lead-content">
+        <h1>{% get_translatable_field header 'first_title' %}</h1>
+        <h2>{% get_translatable_field header 'second_title' %}</h2>
+        {% for headerbutton in header.headerbutton_set.all %}
+            <a href="{{ headerbutton.link }}" target='_blank'
+               class="btn-rounded-white">{% get_translatable_field headerbutton 'title' %}</a>
+        {% endfor %}
+    </div>
+    <!-- End #lead-content -->
 
-			<div id="lead-overlay"></div>
+    <div id="lead-overlay"></div>
 
-			<div id="lead-down">
+    <div id="lead-down">
 				<span>
 					<i class="fa fa-chevron-down" aria-hidden="true"></i>
 				</span>
-			</div>
-			<!-- End #lead-down -->
-		</div>
-		<!-- End #lead -->
+    </div>
+    <!-- End #lead-down -->
+</div>
+<!-- End #lead -->
 
-		<div id="about">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<h2 class="heading">{% translate 'About me' %}</h2>
-					</div>
-					<div class="col-md-8">
-						<p>
-						{% get_translatable_field about 'text' %}
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End #about -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="heading">{% translate 'About me' %}</h2>
+            </div>
+            <div class="col-md-8">
+                <p>
+                    {% get_translatable_field about 'text' %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End #about -->
 
-		<div id="experience" class="background-alt">
-			<h2 class="heading">{% translate 'Experience' %}</h2>
-			<div id="experience-timeline">
-				{% for experience in experiences %}
-				<div data-date="{% get_translatable_field experience 'work_duration_date' %}">
-					<h3>{% get_translatable_field experience 'employer_name' %}</h3>
-					<h4>{% get_translatable_field experience 'job_title' %}</h4>
-					<p>
-					{% get_translatable_field experience 'description' %}
-					</p>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-		<!-- End #experience -->
+<div id="experience" class="background-alt">
+    <h2 class="heading">{% translate 'Experience' %}</h2>
+    <div id="experience-timeline">
+        {% for experience in experiences %}
+            <div data-date="{% get_translatable_field experience 'work_duration_date' %}">
+                <h3>{% get_translatable_field experience 'employer_name' %}</h3>
+                <h4>{% get_translatable_field experience 'job_title' %}</h4>
+                <p>
+                    {% get_translatable_field experience 'description' %}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- End #experience -->
 
-		<div id="education">
-			<h2 class="heading">{% translate 'Education' %}</h2>
+<div id="education">
+    <h2 class="heading">{% translate 'Education' %}</h2>
 
-			<div class="education-block">
-				{% for study in studies %}
-				<h3>{% get_translatable_field study 'university_title' %}</h3>
-				<span class="education-date">{% get_translatable_field study 'study_duration_date' %}</span>
-				<h4>{% get_translatable_field study 'study_grade' %}</h4>
-				<p>
-				{% get_translatable_field study 'description' %}
-				</p>
-				{% endfor %}
-			</div>
-			<!-- End .education-block -->
-		</div>
-		<!-- End #education -->
+    <div class="education-block">
+        {% for study in studies %}
+            <h3>{% get_translatable_field study 'university_title' %}</h3>
+            <span class="education-date">{% get_translatable_field study 'study_duration_date' %}</span>
+            <h4>{% get_translatable_field study 'study_grade' %}</h4>
+            <p>
+                {% get_translatable_field study 'description' %}
+            </p>
+        {% endfor %}
+    </div>
+    <!-- End .education-block -->
+</div>
+<!-- End #education -->
 
-		<div id="projects" class="background-alt">
-			<h2 class="heading">{% translate 'Projects' %}</h2>
-			<div class="container">
-				<div class="row">
-					{% for project in projects %}
-					<div class="project shadow-large">
-						<div class="project-image">
-							<img src="{{ project.image.url }}"/>
-						</div>
-						<!-- End .project-image -->
-						<div class="project-info">
-							<h3>{% get_translatable_field project 'title' %}</h3>
-							<p>
-							{% get_translatable_field project 'description' %}
-							</p>
-							<a href="{{ project.link }}">{% translate 'View Project' %}</a>
-						</div>
-						<!-- End .project-info -->
-					</div>
-					{% endfor %}
+<div id="projects" class="background-alt">
+    <h2 class="heading">{% translate 'Projects' %}</h2>
+    <div class="container">
+        <div class="row">
+            {% for project in projects %}
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="{{ project.image.url }}"/>
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>{% get_translatable_field project 'title' %}</h3>
+                        <p>
+                            {% get_translatable_field project 'description' %}
+                        </p>
+                        <a href="{{ project.link }}">{% translate 'View Project' %}</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+            {% endfor %}
 
-				</div>
-			</div>
-		</div>
-		<!-- End #projects -->
+        </div>
+    </div>
+</div>
+<!-- End #projects -->
 
-		<div id="skills">
-			<h2 class="heading">{% translate 'Skills' %}</h2>
-			<ul>
-				{% for skill in skills %}
-				<li>{% get_translatable_field skill 'title' %}</li>
-				{% endfor %}
-			</ul>
-		</div>
-		<!-- End #skills -->
+<div id="skills">
+    <h2 class="heading">{% translate 'Skills' %}</h2>
+    <ul>
+        {% for skill in skills %}
+            <li>{% get_translatable_field skill 'title' %}</li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- End #skills -->
 
-		<div id="contact">
-			<h2>{% translate 'Get In Touch' %}</h2>
-			<div id="contact-form">
-				<form method="POST" action="https://formspree.io/email@email.com">
-					<input
-							type="hidden"
-							name="_subject"
-							value="Contact request from personal website"
-							/>
-					<input
-							type="email"
-							name="_replyto"
-							placeholder="{% translate 'Your email' %}"
-							required
-							/>
-					<textarea
-							name="message"
-							placeholder="{% translate 'Your message' %}"
-							required
-							></textarea>
-					<button type="submit">{% translate 'Send' %}</button>
-				</form>
-			</div>
-			<!-- End #contact-form -->
-		</div>
-		<!-- End #contact -->
+<div id="contact">
+    <h2>{% translate 'Get In Touch' %}</h2>
+    <div id="contact-form">
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                {{ field }}
+            {% endfor %}
+            <button type="submit">{% translate 'Send' %}</button>
+        </form>
+    </div>
+    <!-- End #contact-form -->
+</div>
+<!-- End #contact -->
 
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-5 copyright">
-						<p>{% translate 'Copright' %} &copy; {% get_translatable_field header 'first_title' %}</p>
-					</div>
-					<div class="col-sm-2 top">
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 copyright">
+                <p>{% translate 'Copright' %} &copy; {% get_translatable_field header 'first_title' %}</p>
+            </div>
+            <div class="col-sm-2 top">
 						<span id="to-top">
 							<i class="fa fa-chevron-up" aria-hidden="true"></i>
 						</span>
-					</div>
-					<div class="col-sm-5 social">
-						<ul>
-							{% for social in socials %}
-							<li>
-								<a href="https://github.com/" target="_blank">
-									<i class="" data-icon="" aria-hidden="true"></i>
-									{{ social.icon.icon_html }}
-								</a>
-							</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- End footer -->
+            </div>
+            <div class="col-sm-5 social">
+                <ul>
+                    {% for social in socials %}
+                        <li>
+                            <a href="{{ social.link }}" target="_blank">
+                                <i class="" data-icon="" aria-hidden="true"></i>
+                                {{ social.icon.icon_html }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End footer -->
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="{% static 'portfolio/js/scripts.min.js' %}"></script>
-	</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static 'portfolio/js/scripts.min.js' %}"></script>
+</body>
 </html>
