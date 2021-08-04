@@ -1,32 +1,53 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse,redirect
 from django.http import HttpResponseRedirect
-from .models import Menu, Header, About, Experience, Study, Project, Skill, Social
 from django.utils.translation import activate
+from django.views import View
+from django.views.decorators.http import require_POST
+######
+from .models import (Menu, Header, About, Experience,
+                     Study, Project, Skill, Social,
+                     ContactMessage)
+from .forms import ContactMessageForm
 
 
 # Create your views here.
 
+class Index(View):
+    def get(self, request):
+        form = ContactMessageForm()
+        return self.render(form, request)
 
-def index(request):
-    menus = Menu.objects.all()
-    header = Header.objects.first()
-    about = About.objects.first()
-    experiences = Experience.objects.all()
-    studies = Study.objects.all()
-    projects = Project.objects.all()
-    skills = Skill.objects.all()
-    socials = Social.objects.all()
-    context = {
-        'menus': menus,
-        'header': header,
-        'about': about,
-        'experiences': experiences,
-        'studies': studies,
-        'projects': projects,
-        'skills': skills,
-        'socials': socials,
-    }
-    return render(request, 'portfolio/index.html', context)
+    def post(self, request):
+        form = ContactMessageForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('portfolio:index')
+        return self.render(form,request)
+
+    def render(self, form, request):
+        menus = Menu.objects.all()
+        header = Header.objects.first()
+        about = About.objects.first()
+        experiences = Experience.objects.all()
+        studies = Study.objects.all()
+        projects = Project.objects.all()
+        skills = Skill.objects.all()
+        socials = Social.objects.all()
+        context = {
+            'menus': menus,
+            'header': header,
+            'about': about,
+            'experiences': experiences,
+            'studies': studies,
+            'projects': projects,
+            'skills': skills,
+            'socials': socials,
+            'form': form
+        }
+        return render(request, 'portfolio/index.html', context)
+
+
 
 
 def language_switch(request, lang):
