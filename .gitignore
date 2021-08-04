@@ -299,3 +299,4 @@ tags
 [._]*.un~
 
 .env.prod
+.idea
