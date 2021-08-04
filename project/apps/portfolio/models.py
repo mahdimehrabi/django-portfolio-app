@@ -74,3 +74,11 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Skill(models.Model):
+    title = models.CharField(max_length=35)
+    title_fa = models.CharField('title persian', max_length=35)
+
+    def __str__(self):
+        return self.title
