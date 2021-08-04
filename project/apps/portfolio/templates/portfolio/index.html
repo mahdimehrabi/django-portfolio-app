@@ -116,45 +116,23 @@
 			<h2 class="heading">{% translate 'Projects' %}</h2>
 			<div class="container">
 				<div class="row">
+					{% for project in projects %}
 					<div class="project shadow-large">
 						<div class="project-image">
-							<img src="{% static  'portfolio/images/project.jpg' %}" />
+							<img src="{{project.image.url}}" />
 						</div>
 						<!-- End .project-image -->
 						<div class="project-info">
-							<h3>Project Name Here</h3>
+							<h3>{% get_translatable_field project 'title' %}</h3>
 							<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut
-							tortor nec nulla commodo malesuada sit amet vel lacus. Fusce
-							eget efficitur libero. Morbi dapibus porta quam laoreet
-							placerat.
+							{% get_translatable_field project 'description' %}
 							</p>
-							<a href="#">{% translate 'View Project' %}</a>
+							<a href="{{project.link}}">{% translate 'View Project' %}</a>
 						</div>
 						<!-- End .project-info -->
 					</div>
-					<!-- End .project -->
+					{% endfor %}
 
-					<div class="project shadow-large">
-						<div class="project-image">
-							<img src="{% static  'portfolio/images/project.jpg' %}" />
-						</div>
-						<!-- End .project-image -->
-						<div class="project-info">
-							<h3>Project Name Here</h3>
-							<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut
-							tortor nec nulla commodo malesuada sit amet vel lacus. Fusce
-							eget efficitur libero. Morbi dapibus porta quam laoreet
-							placerat.
-							</p>
-							<a href="#">View Project</a>
-						</div>
-						<!-- End .project-info -->
-					</div>
-					<!-- End .project -->
 				</div>
 			</div>
 		</div>

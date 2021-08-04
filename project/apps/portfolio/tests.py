@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.utils.translation import activate
 from django.shortcuts import reverse
-from .models import Menu, Header, About, Study, Experience
+from .models import Menu, Header, About, Study, Experience, Project
 from django.utils.translation import get_language
 
 # Create your tests here.
@@ -106,3 +106,18 @@ class PortfolioTest(TestCase):
         activate(second_lang)
         response = self.client.get(reverse('portfolio:index'))
         self.assertContains(response, experience.employer_name_fa)
+
+    def test_project_index_page(self):
+        project = Project.objects.create(
+            title="titasadffassafe", link="https://www.google.com", title_fa='شبسبسش',
+            description='dgsgsdgdsgds', description_fa='بشبشسبشس',
+            image='images/background.jpg')
+
+        activate('en')
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, project.title)
+
+        activate(second_lang)
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertContains(response, project.title_fa)

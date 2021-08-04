@@ -61,3 +61,16 @@ class Study(models.Model):
 
     def __str__(self):
         return self.unviersity_title + ' ' + self.study_grade
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=60)
+    title_fa = models.CharField(max_length=60)
+    description = models.TextField()
+    description_fa = models.TextField()
+
+    image = models.ImageField(upload_to='images')
+    link = models.URLField()
+
+    def __str__(self):
+        return self.title
