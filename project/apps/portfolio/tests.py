@@ -2,8 +2,10 @@ from django.test import TestCase, Client
 from django.utils.translation import activate
 from django.shortcuts import reverse
 from .models import (Menu, Header, About, Study,
-                     Experience, Project, Skill, Social)
+                     Experience, Project, Skill, Social,
+                     ContactMessage)
 from django.utils.translation import get_language
+from faicon.fields import Icon
 
 # Create your tests here.
 
@@ -139,8 +141,17 @@ class PortfolioTest(TestCase):
 
     def test_social_index_page(self):
         social = Social.objects.create(
-            icon='asfsfa', link='https://www.test.com')
+            link='https://www.test.com',
+            icon=Icon("sfasfa", "Safsfasaf", "aaa"))
 
         response = self.client.get(reverse('portfolio:index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, social.link)
+
+    def test_send_meesage(self):
+        old_cm_counts = ContactMessage.objects.count()
+        response = self.client.post(reverse('portfolio:send-message'))
+        self.assertEqual(response.status_code, 302)
+
+        cm_counts = ContactMessage.objects.count()
+        self.assertEqual(old_cm_counts+1, cm_counts)
