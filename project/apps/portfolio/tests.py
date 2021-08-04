@@ -1,7 +1,8 @@
 from django.test import TestCase, Client
 from django.utils.translation import activate
 from django.shortcuts import reverse
-from .models import Menu, Header, About, Study, Experience, Project, Skill
+from .models import (Menu, Header, About, Study,
+                     Experience, Project, Skill, Social)
 from django.utils.translation import get_language
 
 # Create your tests here.
@@ -109,8 +110,9 @@ class PortfolioTest(TestCase):
 
     def test_project_index_page(self):
         project = Project.objects.create(
-            title="titasadffassafe", link="https://www.google.com", title_fa='شبسبسش',
-            description='dgsgsdgdsgds', description_fa='بشبشسبشس',
+            title="titasadffassafe", link="https://www.google.com",
+            title_fa='شبسبسش', description='dgsgsdgdsgds',
+            description_fa='بشبشسبشس',
             image='images/background.jpg')
 
         activate('en')
@@ -134,3 +136,11 @@ class PortfolioTest(TestCase):
         activate(second_lang)
         response = self.client.get(reverse('portfolio:index'))
         self.assertContains(response, skill.title_fa)
+
+    def test_social_index_page(self):
+        social = Social.objects.create(
+            icon='asfsfa', link='https://www.test.com')
+
+        response = self.client.get(reverse('portfolio:index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, social.link)

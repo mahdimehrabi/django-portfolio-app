@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (Menu, HeaderButton, Header, About, Experience,
-                     Study, Project, Skill)
+                     Study, Project, Skill, Social)
 
 
 # Register your models here.
@@ -44,6 +44,10 @@ class SkillAdmin(admin.ModelAdmin):
     list_display = ('title', 'title_fa')
 
 
+class SocialAdmin(admin.ModelAdmin):
+    list_display = ('icon',)
+
+
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Header, HeaderAdmin)
@@ -51,3 +55,4 @@ admin.site.register(About, AboutAdmin)
 admin.site.register(Experience, ExperienceAdmin)
 admin.site.register(Study, StudyAdmin)
 admin.site.register(Skill, SkillAdmin)
+admin.site.register(Social, SocialAdmin)

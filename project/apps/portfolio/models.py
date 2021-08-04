@@ -1,4 +1,5 @@
 from django.db import models
+from faicon.fields import FAIconField
 
 
 class Menu(models.Model):
@@ -82,3 +83,8 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Social(models.Model):
+    link = models.URLField(max_length=35)
+    icon = FAIconField()
