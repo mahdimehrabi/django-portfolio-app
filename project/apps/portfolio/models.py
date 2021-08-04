@@ -88,3 +88,8 @@ class Skill(models.Model):
 class Social(models.Model):
     link = models.URLField(max_length=35)
     icon = FAIconField()
+
+
+class ContactMessage(models.Model):
+    email = models.EmailField()
+    message = models.TextField()
