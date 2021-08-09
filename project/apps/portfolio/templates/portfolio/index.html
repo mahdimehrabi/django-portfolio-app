@@ -16,7 +16,14 @@
     />
     <link rel="stylesheet" href="{% static 'portfolio/libs/font-awesome/css/fontawesome.min.css' %}"/>
     <link href="{% static 'portfolio/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    {% get_current_language as LANGUAGE_CODE  %}
+    {% if LANGUAGE_CODE == 'fa' %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/rtl/bootstrap.rtl.css' %}" />
+    <link href="{% static 'portfolio/css/rtl/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'portfolio/css/rtl/rtl-complete.css' %}" rel="stylesheet" />
+    {% else %}
     <link href="{% static 'portfolio/css/styles.css' %}" rel="stylesheet"/>
+    {% endif %}
 </head>
 
 <body>
