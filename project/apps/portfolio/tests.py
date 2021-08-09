@@ -3,6 +3,7 @@ from django.utils.translation import activate
 from django.shortcuts import reverse
 from django.utils.translation import get_language
 from django.core import mail
+from django.conf import settings
 from faicon.fields import Icon
 from .models import (Menu, Header, About, Study,
                      Experience, Project, Skill, Social,
@@ -156,6 +157,7 @@ class PortfolioTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
         self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].body, "text text text")
+        self.assertTrue("text text text" in mail.outbox[0].body)
+        self.assertTrue(settings.ADMIN_EMAIL in mail.outbox[0].to)
         cm_counts = ContactMessage.objects.count()
         self.assertEqual(old_cm_counts+1, cm_counts)
