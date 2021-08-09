@@ -298,5 +298,9 @@ tags
 # Persistent undo
 [._]*.un~
 
-.env.prod
+#jetbrains
 .idea
+
+#docker
+.env.prod
+.env.dev
