@@ -150,7 +150,8 @@ class PortfolioTest(TestCase):
 
     def test_send_meesage(self):
         old_cm_counts = ContactMessage.objects.count()
-        response = self.client.post(reverse('portfolio:send-message'))
+        response = self.client.post(reverse('portfolio:index'), {
+                                    'email': "test@test.com", "message": "text text text"})
         self.assertEqual(response.status_code, 302)
 
         cm_counts = ContactMessage.objects.count()
