@@ -1,11 +1,12 @@
 from django.test import TestCase, Client
 from django.utils.translation import activate
 from django.shortcuts import reverse
+from django.utils.translation import get_language
+from django.core import mail
+from faicon.fields import Icon
 from .models import (Menu, Header, About, Study,
                      Experience, Project, Skill, Social,
                      ContactMessage)
-from django.utils.translation import get_language
-from faicon.fields import Icon
 
 # Create your tests here.
 
@@ -154,5 +155,7 @@ class PortfolioTest(TestCase):
                                     'email': "test@test.com", "message": "text text text"})
         self.assertEqual(response.status_code, 302)
 
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].body, "text text text")
         cm_counts = ContactMessage.objects.count()
         self.assertEqual(old_cm_counts+1, cm_counts)
