@@ -8,5 +8,5 @@ from .models import ContactMessage
 @receiver(post_save, sender=ContactMessage)
 def send_contact_email(sender, instance, created, **kwargs):
     if created:
-        mail.send_mail('contact message', instance.message+"<br>sender:"+instance.email,
+        mail.send_mail('contact message', instance.message+"\nsender:"+instance.email,
                        settings.EMAIL_ADDRESS, [settings.ADMIN_EMAIL], True)
