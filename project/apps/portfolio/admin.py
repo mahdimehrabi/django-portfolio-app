@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (Menu, HeaderButton, Header, About, Experience,
-                     Study, Project, Skill, Social)
+                     Study, Project, Skill, Social, ContactMessage)
 
 
 # Register your models here.
@@ -22,10 +22,16 @@ class HeaderAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 
+    def has_add_permission(self, request):
+        return Header.objects.first() == None
+
 
 class AboutAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
+
+    def has_add_permission(self, request):
+        return About.objects.first() == None
 
 
 class ExperienceAdmin(admin.ModelAdmin):
@@ -48,6 +54,13 @@ class SocialAdmin(admin.ModelAdmin):
     list_display = ('icon',)
 
 
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('email',)
+
+    def has_add_permission(self, request):
+        return False
+
+
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Header, HeaderAdmin)
@@ -56,3 +69,4 @@ admin.site.register(Experience, ExperienceAdmin)
 admin.site.register(Study, StudyAdmin)
 admin.site.register(Skill, SkillAdmin)
 admin.site.register(Social, SocialAdmin)
+admin.site.register(ContactMessage, ContactMessageAdmin)
