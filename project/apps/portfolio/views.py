@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse,redirect
+from django.shortcuts import render, reverse, redirect
 from django.http import HttpResponseRedirect
 from django.utils.translation import activate
 from django.views import View
@@ -23,7 +23,7 @@ class Index(View):
         if form.is_valid():
             form.save()
             return redirect('portfolio:index')
-        return self.render(form,request)
+        return self.render(form, request)
 
     def render(self, form, request):
         menus = Menu.objects.all()
@@ -46,8 +46,6 @@ class Index(View):
             'form': form
         }
         return render(request, 'portfolio/index.html', context)
-
-
 
 
 def language_switch(request, lang):
