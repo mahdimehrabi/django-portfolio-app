@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.utils.translation import activate
 from django.views import View
 from django.views.decorators.http import require_POST
+from django.contrib import messages
 ######
 from .models import (Menu, Header, About, Experience,
                      Study, Project, Skill, Social,
@@ -22,6 +23,8 @@ class Index(View):
 
         if form.is_valid():
             form.save()
+            messages.success(
+                request, f"thank you , your message recceived and I will contact you soon", extra_tags="alert")
             return redirect('portfolio:index')
         return self.render(form, request)
 
